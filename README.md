@@ -23,7 +23,7 @@ The number of attacks on APIs increases every year, so it is necessary to implem
 
 In this plugin, we explore artificial intelligence within one of its major subfields, deep learning, by utilizing a popular transformer model for natural language processing, the BERT model (Bidirectional Encoder Representations from Transformers). Introduced in 2018 by Google researchers, BERT shares the common architecture of transformer models but stands out due to its bidirectional attention to text context, enabling a deeper understanding of the overall content compared to previous models.
 
-BERT is a pre-trained transformer (PT) model that has been trained on a massive amount of data, thereby accumulating substantial knowledge. To ensure it works effectively for SQL Injection detection tasks, we fine-tuned this knowledge using a dataset specific to this type of attack, thus specializing the model's understanding for our context. After this fine-tuning stage, we applied a Convolutional Neural Network (CNN) to classify the input as either an attack or non-attack.
+BERT is a pre-trained transformer (PT), large language model (LLM), that has been trained on a massive amount of data, thereby accumulating substantial knowledge. To ensure it works effectively for SQL Injection detection tasks, we fine-tuned this knowledge using a dataset specific to this type of attack, thus specializing the model's understanding for our context. After this fine-tuning stage, we applied a Convolutional Neural Network (CNN) to classify the input as either an attack or non-attack.
 
 ## TODO List
 
