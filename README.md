@@ -23,7 +23,9 @@ The number of attacks on APIs increases every year, so it is necessary to implem
 
 This plugin is still evolving, and the next features planned are:
 
-- training the model with new attack
+- training the AI Model with new attack
+- add cache layer in AI Model
+- improve response time
 - add integration and unit tests cases
 - publish a release of the plugin at luarocks.org
 - add support to configure message to user by plugin configuration
