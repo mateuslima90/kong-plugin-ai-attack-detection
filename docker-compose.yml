@@ -1,0 +1,34 @@
+volumes:
+  kong_data: {}
+
+services:
+  kong:
+    build:
+      context: ./
+    volumes:
+      - ./kong.yml:/tmp/kong-declarative-config.yml
+      - ./kong/plugins/ai-attack-detection:/usr/local/lib/luarocks/rocks-5.1/kong-plugin-ai-attack-detection/0.1.0-1/lua/kong/plugins/kong-plugin-ai-attack-detection
+      - ./kong/plugins/ai-attack-detection:/usr/local/share/lua/5.1/kong/plugins/kong-plugin-ai-attack-detection
+    environment:
+      KONG_DATABASE: "off"
+      KONG_DECLARATIVE_CONFIG: /tmp/kong-declarative-config.yml
+      KONG_PROXY_ACCESS_LOG: /dev/stdout
+      KONG_ADMIN_ACCESS_LOG: /dev/stdout
+      KONG_PROXY_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_LISTEN: 0.0.0.0:8001
+      KONG_LOG_LEVEL: debug
+      KONG_PROXY_LISTEN: 0.0.0.0:8000, 0.0.0.0:9000 http2
+      KONG_PLUGINS: bundled,kong-plugin-ai-attack-detection
+      KONG_NGINX_HTTP_LUA_SHARED_DICT: kong_unified_cache 128m
+    ports:
+      - "8000:8000"
+      - "9000:9000"
+      - "9001:8001"
+      - "9444:8444"
+      - "9443:8443"
+
+  httpbin:
+    image: kennethreitz/httpbin
+    ports:
+      - "8080:80"
