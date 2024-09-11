@@ -25,6 +25,8 @@ In this plugin, we explore artificial intelligence within one of its major subfi
 
 BERT is a pre-trained transformer (PT), large language model (LLM), that has been trained on a massive amount of data, thereby accumulating substantial knowledge. To ensure it works effectively for SQL Injection detection tasks, we fine-tuned this knowledge using a dataset specific to this type of attack, thus specializing the model's understanding for our context. After this fine-tuning stage, we applied a Convolutional Neural Network (CNN) to classify the input as either an attack or non-attack.
 
+Repo: https://github.com/matheustmattioli/BERT-SQL-API
+
 ## TODO List
 
 This plugin is still evolving, and the next features planned are:
