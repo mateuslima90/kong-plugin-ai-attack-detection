@@ -5,6 +5,24 @@ ENV PACKAGES="openssl-devel kernel-headers gcc git openssh" \
   KONG_PLUGIN_SESSION_VER="2.4.4" \
   NGX_DISTRIBUTED_SHM_VER="1.0.7"
 
+# Instala dependências do luarocks e do Lua
+RUN apk add --no-cache \
+    bash curl git unzip build-base \
+    openssl-dev readline-dev ncurses-dev \
+    lua5.1 lua5.1-dev
+
+# Ajusta o ambiente para luarocks funcionar
+RUN ln -sf /usr/bin/lua5.1 /usr/bin/lua && \
+    ln -sf /usr/include/lua5.1 /usr/include/lua
+
+# Instala luarocks com validação
+RUN curl -fSL https://luarocks.org/releases/luarocks-${LUAROCKS_VERSION}.tar.gz -o luarocks.tar.gz && \
+    tar -xzf luarocks.tar.gz && \
+    cd luarocks-${LUAROCKS_VERSION} && \
+    ./configure --lua-version=5.1 --with-lua=/usr && \
+    make && make install && \
+    cd .. && rm -rf luarocks*
+
 RUN set -ex \
   && apk --no-cache add \
   libssl1.1 \
