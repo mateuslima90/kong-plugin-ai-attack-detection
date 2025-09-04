@@ -13,8 +13,8 @@ RUN wget --progress=dot:giga https://luarocks.org/releases/luarocks-3.12.2.tar.g
 WORKDIR /luarocks-3.12.2
 
 RUN ./configure --prefix-/usr/local --with-lua-include=/usr/include/ \
-  && make \
-  && make install
+    && make \
+    && make install
 
 RUN luarocks --version
 
