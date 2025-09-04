@@ -43,7 +43,7 @@ return {
     GET = function(self, db)
         if kong.db.strategy ~= "off" then
             return kong.response.exit(400, {
-              message = "this endpoint is only available when Kong is configured to not use a database"
+              message = "this endpoint is only available when Kong is configured to not use a database!"
             })
           end
 
