@@ -1,4 +1,4 @@
-local plugin_name = "cache-memory"
+local plugin_name = "ai-attack-detection"
 local package_name = "kong-plugin-" .. plugin_name
 local package_version = "1.0.0"
 local rockspec_revision = "1"
