@@ -23,7 +23,7 @@ jobs:
         registry: ${{ secrets.REGISTRY_URL }}
 
     - name: Set up Docker buildx
-      uses: dockersetup-buildx-action@v3
+      uses: docker/setup-buildx-action@v3
 
     - name: Build and push image
       uses: docker/build-push-action@v6
