@@ -18,9 +18,9 @@ jobs:
     - name: Login to registry
       uses: docker/login-action@v3
       with:
-        username: ${{ secrets.REGISTRY_USER }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
-        registry: ${{ secrets.REGISTRY_URL }}
+        username: ${{ secrets.REGISTRY_USER_NE1 }}
+        password: ${{ secrets.REGISTRY_PASSWORD_NE1 }}
+        registry: ${{ secrets.REGISTRY_URL_NE1 }}
 
     - name: Set up Docker buildx
       uses: docker/setup-buildx-action@v3
@@ -30,4 +30,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.REGISTRY_URL}}/teste-mateus/kong-plugin-detection-attack:latest
+        tags: ${{ secrets.REGISTRY_URL_NE1}}/teste-mateus/kong-plugin-detection-attack:latest
