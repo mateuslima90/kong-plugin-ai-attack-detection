@@ -1,6 +1,6 @@
 # kong-plugin-ai-attack-detection
 
-## About this project!
+## About this project!!
 
 This project is a Lua-based plugin for Kong API Gateway that allows you to define routes and services that check if contains malicious code.
 
