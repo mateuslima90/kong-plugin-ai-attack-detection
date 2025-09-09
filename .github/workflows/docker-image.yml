@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REGISTRY: ${{ secrets.REGISTRY_URL }}      
-      IMAGE_NAME: teste-mateus/kong-plugin-detection-attack
+      IMAGE_NAME: teste-mateus2/kong-plugin-detection-attack
       TAG: latest
 
     steps:
