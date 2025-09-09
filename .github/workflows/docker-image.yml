@@ -28,7 +28,7 @@ jobs:
       - name: Build image (manual)
         run: |
           set -euo pipefail
-          IMAGE="$REGISTRY_URL_NE1/$IMAGE_NAME"
+          IMAGE="$REGISTRY/$IMAGE_NAME"
           echo "Building $IMAGE:$TAG"
           docker build -t "$IMAGE:$TAG" .
 
