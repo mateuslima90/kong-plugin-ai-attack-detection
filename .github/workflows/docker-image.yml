@@ -10,7 +10,7 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     env:
-      REGISTRY: ${{ secrets.REGISTRY_URL }}      
+      REGISTRY: ${{ secrets.REGISTRY_URL_NE1 }}      
       IMAGE_NAME: teste-mateus/kong-plugin-detection-attack
       TAG: latest
 
@@ -21,14 +21,14 @@ jobs:
       - name: Login to registry
         uses: docker/login-action@v3
         with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ secrets.REGISTRY_USER }}
-          password: ${{ secrets.REGISTRY_PASSWORD }}
+          registry: ${{ env.REGISTRY_URL_NE1 }}
+          username: ${{ secrets.REGISTRY_USER_NE1 }}
+          password: ${{ secrets.REGISTRY_PASSWORD_NE1 }}
 
       - name: Build image (manual)
         run: |
           set -euo pipefail
-          IMAGE="$REGISTRY/$IMAGE_NAME"
+          IMAGE="$REGISTRY_URL_NE1/$IMAGE_NAME"
           echo "Building $IMAGE:$TAG"
           docker build -t "$IMAGE:$TAG" .
 
